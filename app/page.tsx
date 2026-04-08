@@ -13,10 +13,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 /* ─── Hero Images ─── */
 
 const heroImages = [
-  'https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=1920&q=80',
-  'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&q=80',
-  'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=1920&q=80',
-  'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1920&q=80',
+  'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1920&q=80',
+  'https://images.unsplash.com/photo-1562774053-701939374585?w=1920&q=80',
+  'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&q=80',
+  'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=1920&q=80',
 ]
 
 const stats = [
@@ -369,20 +369,20 @@ export default function LandingPage() {
               EduRisk AI
             </span>
           </div>
-          <div className="flex items-center gap-3">
-            <Link href="/business-owner/dashboard" className="px-4 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-all no-underline">
+          <div className="flex items-center gap-1">
+            <Link href="/business-owner/dashboard" className="px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-all no-underline whitespace-nowrap">
               HEI Rep
             </Link>
-            <Link href="/risk-manager/dashboard" className="px-4 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-all no-underline">
+            <Link href="/risk-manager/dashboard" className="px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-all no-underline whitespace-nowrap">
               ADEK Analyst
             </Link>
-            <Link href="/chief-risk-manager/dashboard" className="px-4 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-all no-underline">
+            <Link href="/chief-risk-manager/dashboard" className="px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-all no-underline whitespace-nowrap">
               Senior Manager
             </Link>
-            <Link href="/executive/dashboard" className="px-5 py-2.5 rounded-lg text-sm font-medium text-white bg-white/15 backdrop-blur-md hover:bg-white/25 border border-white/20 transition-all no-underline">
+            <Link href="/executive/dashboard" className="px-3 py-2 rounded-lg text-sm font-medium text-white bg-white/15 backdrop-blur-md hover:bg-white/25 border border-white/20 transition-all no-underline whitespace-nowrap">
               ADEK Leadership
             </Link>
-            <Link href="/admin/users" className="px-4 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-all no-underline">
+            <Link href="/admin/users" className="px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-all no-underline whitespace-nowrap">
               Admin
             </Link>
           </div>
@@ -414,7 +414,7 @@ export default function LandingPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[rgba(74,176,222,0.1)] to-[rgba(139,92,246,0.08)]" />
 
           {/* Hero content — centered */}
-          <div className="relative z-10 flex h-full flex-col items-center justify-center px-6">
+          <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 pt-20">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
