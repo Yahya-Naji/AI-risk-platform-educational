@@ -13,7 +13,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 /* ─── Hero Images ─── */
 
 const heroImages = [
-  'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&q=80',
+  'https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=1920&q=80',
   'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&q=80',
   'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=1920&q=80',
   'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1920&q=80',
