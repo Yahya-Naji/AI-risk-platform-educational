@@ -1,0 +1,196 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id            String        @id @default(cuid())
+  name          String
+  email         String        @unique
+  role          Role
+  department    String
+  company       String        @default("Bloom Holding")
+  group         String        @default("National Holding Group")
+  avatar        String?
+  createdAt     DateTime      @default(now())
+  chatSessions  ChatSession[]
+  comments      Comment[]
+  assignedRisks Risk[]        @relation("AssignedTo")
+  reportedRisks Risk[]        @relation("ReportedBy")
+  tasks         Task[]        @relation("TaskAssignee")
+
+  @@map("users")
+}
+
+model Risk {
+  id                 String       @id @default(cuid())
+  riskId             String       @unique
+  title              String
+  description        String
+  category           RiskCategory
+  subcategoryL2      String?
+  subcategoryL3      String?
+  department         String
+  process            String?
+  likelihood         Int          @default(0)
+  impact             Int          @default(0)
+  inherentScore      Int          @default(0)
+  riskLevel          RiskLevel    @default(MEDIUM)
+  aiSuggested        Boolean      @default(false)
+  aiLikelihood       Int?
+  aiImpact           Int?
+  fraudRisk          Boolean      @default(false)
+  fraudCategory1     String?
+  fraudCategory2     String?
+  fraudDescription   String?
+  strategicObjective String?
+  strategicRelevance Int?
+  grossScore         Int?
+  reportedById       String?
+  assignedToId       String?
+  riskOwner          String?
+  notes              String?
+  status             RiskStatus   @default(DRAFT)
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+  controls           Control[]
+  assignedTo         User?        @relation("AssignedTo", fields: [assignedToId], references: [id])
+  reportedBy         User?        @relation("ReportedBy", fields: [reportedById], references: [id])
+  tasks              Task[]
+
+  @@map("risks")
+}
+
+model Control {
+  id                  String      @id @default(cuid())
+  controlId           String      @unique
+  description         String
+  type                ControlType
+  designRating        Int?
+  effectivenessRating Int?
+  totalRating         Int?
+  adequacy            String?
+  riskId              String
+  createdAt           DateTime    @default(now())
+  risk                Risk        @relation(fields: [riskId], references: [id], onDelete: Cascade)
+  tasks               Task[]
+
+  @@map("controls")
+}
+
+model Task {
+  id              String     @id @default(cuid())
+  taskId          String     @unique
+  title           String
+  description     String?
+  status          TaskStatus @default(PENDING)
+  dueDate         DateTime?
+  isOverdue       Boolean    @default(false)
+  riskId          String
+  controlId       String?
+  assignedToId    String?
+  evidenceCount   Int        @default(0)
+  effectiveness   String?
+  gaps            String?
+  recommendations String?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  comments        Comment[]
+  evidence        Evidence[]
+  assignedTo      User?      @relation("TaskAssignee", fields: [assignedToId], references: [id])
+  control         Control?   @relation(fields: [controlId], references: [id])
+  risk            Risk       @relation(fields: [riskId], references: [id], onDelete: Cascade)
+
+  @@map("tasks")
+}
+
+model Evidence {
+  id        String   @id @default(cuid())
+  fileName  String
+  fileSize  String?
+  fileType  String?
+  url       String?
+  taskId    String
+  createdAt DateTime @default(now())
+  task      Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
+  @@map("evidence")
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  taskId    String
+  userId    String
+  createdAt DateTime @default(now())
+  task      Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@map("comments")
+}
+
+model ChatSession {
+  id         String   @id @default(cuid())
+  userId     String
+  messages   Json     @default("[]")
+  draftRisks Json     @default("[]")
+  step       Int      @default(1)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  user       User     @relation(fields: [userId], references: [id])
+
+  @@map("chat_sessions")
+}
+
+enum Role {
+  BUSINESS_OWNER
+  RISK_MANAGER
+  ADMIN
+  CHIEF_RISK_MANAGER
+  EXECUTIVE
+}
+
+enum RiskStatus {
+  DRAFT
+  SUBMITTED
+  IN_REVIEW
+  VALIDATED
+  ACCEPTED
+  REJECTED
+  MITIGATED
+}
+
+enum RiskCategory {
+  OPERATIONAL
+  COMPLIANCE
+  FINANCIAL
+  STRATEGIC
+  HR_TALENT
+  IT_CYBER
+}
+
+enum RiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum ControlType {
+  PREVENTIVE
+  DETECTIVE
+  CORRECTIVE
+}
+
+enum TaskStatus {
+  PENDING
+  IN_PROGRESS
+  CHANGES_REQUESTED
+  SUBMITTED
+  COMPLETED
+  OVERDUE
+}
