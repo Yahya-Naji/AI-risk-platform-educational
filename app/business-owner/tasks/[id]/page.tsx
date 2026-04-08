@@ -214,7 +214,7 @@ export default function TaskDetailPage() {
   useEffect(() => {
     async function getUser() {
       try {
-        const res = await fetch('/api/users?email=sarah.lee@bloomholding.com');
+        const res = await fetch('/api/users?email=ahmed.mansouri@hei-adpu.ae');
         if (res.ok) {
           const data = await res.json();
           setUserId(data.id);

@@ -59,38 +59,38 @@ function getRiskLevel(score: number): string {
   return 'Low';
 }
 
-// AI-suggested controls based on category
+// AI-suggested controls based on category — ADEK/HEI context
 function getAiControls(category: string): Array<{ description: string; type: 'PREVENTIVE' | 'DETECTIVE' }> {
   const suggestions: Record<string, Array<{ description: string; type: 'PREVENTIVE' | 'DETECTIVE' }>> = {
     COMPLIANCE: [
-      { description: 'Engage Local Regulatory Consultant', type: 'PREVENTIVE' },
-      { description: 'Compliance Checklist & Timeline', type: 'PREVENTIVE' },
-      { description: 'Regular Compliance Status Reviews', type: 'DETECTIVE' },
+      { description: 'ADEK Regulatory Compliance Review — CAA & QF Emirates Alignment', type: 'PREVENTIVE' },
+      { description: 'Independent TMA-CMA Assessment Gap Audit', type: 'DETECTIVE' },
+      { description: 'Semester Submission Data Validation & Sign-off Process', type: 'PREVENTIVE' },
     ],
     FINANCIAL: [
-      { description: 'Budget Variance Monitoring & Reporting', type: 'DETECTIVE' },
-      { description: 'Financial Controls Reconciliation', type: 'PREVENTIVE' },
-      { description: 'Quarterly Financial Audit Review', type: 'DETECTIVE' },
+      { description: 'Institutional Financial Sustainability Review', type: 'DETECTIVE' },
+      { description: 'Budget Variance Monitoring for Academic Operations', type: 'DETECTIVE' },
+      { description: 'Quarterly Financial Audit — ADEK Reporting Standards', type: 'PREVENTIVE' },
     ],
     OPERATIONAL: [
-      { description: 'Process Documentation & SOP Update', type: 'PREVENTIVE' },
-      { description: 'Operational Risk Monitoring Dashboard', type: 'DETECTIVE' },
-      { description: 'Business Continuity Plan Review', type: 'PREVENTIVE' },
+      { description: 'Mandatory Academic Performance Remediation Action Plan', type: 'CORRECTIVE' } as unknown as { description: string; type: 'PREVENTIVE' | 'DETECTIVE' },
+      { description: 'Student Engagement Monitoring Dashboard Implementation', type: 'DETECTIVE' },
+      { description: 'Assessment Completion Early Warning System', type: 'PREVENTIVE' },
     ],
     IT_CYBER: [
-      { description: 'Security Vulnerability Assessment', type: 'DETECTIVE' },
-      { description: 'Access Control Policy Implementation', type: 'PREVENTIVE' },
-      { description: 'Incident Response Plan Update', type: 'PREVENTIVE' },
+      { description: 'LMS Data Integrity & Security Assessment', type: 'DETECTIVE' },
+      { description: 'UAE PDPL Data Residency Compliance Review', type: 'PREVENTIVE' },
+      { description: 'Student Data Access Control Policy Update', type: 'PREVENTIVE' },
     ],
     STRATEGIC: [
-      { description: 'Strategic Risk Assessment Workshop', type: 'PREVENTIVE' },
-      { description: 'Market Analysis & Monitoring', type: 'DETECTIVE' },
-      { description: 'Stakeholder Communication Plan', type: 'PREVENTIVE' },
+      { description: 'ADEK On-Site Regulatory Review Visit', type: 'DETECTIVE' },
+      { description: 'Semester-over-Semester KPI Benchmarking Review', type: 'DETECTIVE' },
+      { description: 'Institutional Improvement Plan — ADEK Strategic Alignment', type: 'PREVENTIVE' },
     ],
     HR_TALENT: [
-      { description: 'Talent Retention Program Review', type: 'PREVENTIVE' },
-      { description: 'HR Compliance Audit', type: 'DETECTIVE' },
-      { description: 'Succession Planning Update', type: 'PREVENTIVE' },
+      { description: 'Faculty Qualifications & Emiratisation Compliance Audit', type: 'DETECTIVE' },
+      { description: 'Academic Staff Development & Retention Programme', type: 'PREVENTIVE' },
+      { description: 'Tutor Marking Calibration & Moderation Policy', type: 'PREVENTIVE' },
     ],
   };
   return suggestions[category] || suggestions.OPERATIONAL;

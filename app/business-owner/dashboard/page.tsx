@@ -105,7 +105,7 @@ export default function BusinessOwnerDashboard() {
   useEffect(() => {
     async function load() {
       try {
-        const userRes = await fetch('/api/users?email=sarah.lee@bloomholding.com');
+        const userRes = await fetch('/api/users?email=ahmed.mansouri@hei-adpu.ae');
         const user = await userRes.json();
         const dashRes = await fetch(`/api/business-owner/dashboard?userId=${user.id}`);
         const dashData = await dashRes.json();

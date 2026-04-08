@@ -56,8 +56,8 @@ export async function POST(request: Request) {
       email,
       role,
       department,
-      company: company || "Bloom Holding",
-      group: group || "National Holding Group",
+      company: company || "ADEK",
+      group: group || "Abu Dhabi Department of Education and Knowledge",
       avatar: avatar || name.split(" ").map((w: string) => w[0]).join("").toUpperCase().slice(0, 2),
     },
   });

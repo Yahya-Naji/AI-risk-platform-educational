@@ -80,7 +80,7 @@ export default function SubmittedRisksPage() {
   useEffect(() => {
     async function load() {
       try {
-        const userRes = await fetch('/api/users?email=sarah.lee@bloomholding.com');
+        const userRes = await fetch('/api/users?email=ahmed.mansouri@hei-adpu.ae');
         const user = await userRes.json();
         const risksRes = await fetch(`/api/risks?userId=${user.id}`);
         const data = await risksRes.json();

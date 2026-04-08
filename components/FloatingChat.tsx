@@ -64,7 +64,7 @@ export default function FloatingChat() {
     if (p.includes('/executive/dashboard')) return 'User is an Executive Board member viewing the strategic risk dashboard — cross-filtering risks, viewing heat maps, entity exposure, and board-level KRIs.';
     if (p.includes('/executive')) return 'User is an Executive Board member focused on strategic risk oversight and board-level reporting.';
     if (p.includes('/admin')) return 'User is a System Administrator managing users, workflows, bulk imports, form builder, and data repositories.';
-    return 'User is on the RiskAI platform. RiskAI is an enterprise risk management platform for National Holding Group / Bloom Holding (UAE). It covers risk identification, validation, control assignment, task management, and board reporting.';
+    return 'User is on the EduRisk AI platform. EduRisk AI is an ADEK higher education risk intelligence platform for overseeing HEIs in Abu Dhabi. It covers AI anomaly detection, HEI risk acknowledgement, ADEK validation, control assignment, evidence management, and sector-wide reporting.';
   };
 
   // ── Chat functions ──
@@ -261,7 +261,7 @@ export default function FloatingChat() {
                     <Bot size={36} style={{ opacity: 0.3, marginBottom: '10px' }} />
                     <div style={{ fontSize: '14px', fontWeight: 600, marginBottom: '4px', color: 'var(--text-secondary)' }}>Hi, I&apos;m Yehya!</div>
                     <div style={{ fontSize: '12px', lineHeight: 1.5, marginBottom: '14px' }}>
-                      Your AI risk assistant. Ask me about risks, controls, tasks, or anything on the platform.
+                      Your ADEK risk intelligence assistant. Ask me about HEI anomalies, controls, tasks, or anything on the platform.
                     </div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', justifyContent: 'center' }}>
                       {quickPrompts.map(q => (

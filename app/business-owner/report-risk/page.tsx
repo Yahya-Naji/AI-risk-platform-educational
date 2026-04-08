@@ -108,7 +108,7 @@ export default function ReportRiskPage() {
   useEffect(() => {
     async function loadUser() {
       try {
-        const res = await fetch('/api/users?email=sarah.lee@bloomholding.com');
+        const res = await fetch('/api/users?email=ahmed.mansouri@hei-adpu.ae');
         const user = await res.json();
         setUserId(user.id);
         setMessages([{

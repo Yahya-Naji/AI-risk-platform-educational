@@ -97,7 +97,7 @@ export default function RiskManagerDashboard() {
       if (filterDept) params.set('department', filterDept);
       const [dashRes, userRes, risksRes] = await Promise.all([
         fetch(`/api/risk-manager/dashboard?${params}`),
-        fetch('/api/users?email=ahmed.rashid@bloomholding.com'),
+        fetch('/api/users?email=sara.khalil@adek.gov.ae'),
         fetch('/api/risks?status=SUBMITTED'),
       ]);
       const dashData = await dashRes.json();

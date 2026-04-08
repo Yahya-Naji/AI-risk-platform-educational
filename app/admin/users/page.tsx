@@ -97,8 +97,8 @@ export default function UsersPage() {
     email: '',
     role: 'BUSINESS_OWNER',
     department: '',
-    company: 'Bloom Holding',
-    group: 'National Holding Group',
+    company: 'Abu Dhabi HEI',
+    group: 'Abu Dhabi Department of Education and Knowledge',
   });
 
   const showToastMsg = (msg: string) => {
@@ -181,7 +181,7 @@ export default function UsersPage() {
       if (res.ok) {
         showToastMsg(`User ${formData.name} created successfully`);
         setShowModal(false);
-        setFormData({ name: '', email: '', role: 'BUSINESS_OWNER', department: '', company: 'Bloom Holding', group: 'National Holding Group' });
+        setFormData({ name: '', email: '', role: 'BUSINESS_OWNER', department: '', company: 'Abu Dhabi HEI', group: 'Abu Dhabi Department of Education and Knowledge' });
         fetchUsers();
       } else {
         const err = await res.json();
@@ -262,7 +262,7 @@ export default function UsersPage() {
 
   const openCreateModal = () => {
     setEditingUser(null);
-    setFormData({ name: '', email: '', role: 'BUSINESS_OWNER', department: '', company: 'Bloom Holding', group: 'National Holding Group' });
+    setFormData({ name: '', email: '', role: 'BUSINESS_OWNER', department: '', company: 'Abu Dhabi HEI', group: 'Abu Dhabi Department of Education and Knowledge' });
     setShowModal(true);
   };
 

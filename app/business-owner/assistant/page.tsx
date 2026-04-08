@@ -127,7 +127,7 @@ export default function AssistantPage() {
       const answerSdp = await sdpRes.text();
       await pc.setRemoteDescription({ type: 'answer', sdp: answerSdp });
 
-      addLog('system', 'Connected to RiskAI Voice Assistant.');
+      addLog('system', 'Connected to EduRisk AI Voice Assistant.');
     } catch (err) {
       const msg = err instanceof Error ? err.message : 'Connection failed';
       addLog('system', `Error: ${msg}`);
@@ -230,7 +230,7 @@ export default function AssistantPage() {
                   </span>
                 </h1>
                 <p style={{ margin: '2px 0 0', fontSize: '13px', color: 'var(--text-muted)' }}>
-                  Talk to RiskAI about risk management, platform guidance, and UAE compliance
+                  Talk to EduRisk AI about HEI anomalies, ADEK oversight, and regulatory guidance
                 </p>
               </div>
             </div>

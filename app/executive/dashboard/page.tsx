@@ -210,7 +210,7 @@ export default function ExecutiveDashboard() {
         {/* Connected Banner */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: 'var(--text-muted)', margin: '-10px 0 -4px' }}>
           <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', animation: 'pulse 2s infinite' }} />
-          Connected as <strong style={{ color: 'var(--text-primary)' }}>Executive Board</strong> &middot; National Holding Group &middot; Q1 2026
+          Connected as <strong style={{ color: 'var(--text-primary)' }}>Executive Board</strong> &middot; Abu Dhabi Department of Education and Knowledge &middot; Q1 2026
         </div>
 
         {/* Header */}
@@ -277,7 +277,7 @@ export default function ExecutiveDashboard() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingTop: '12px', borderTop: '1px solid var(--border-color)', marginTop: '12px', flexWrap: 'wrap' }}>
             <span style={{ fontSize: '11px', color: 'var(--text-muted)', marginRight: '4px' }}>Current View:</span>
             <span style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '4px 10px', background: 'rgba(74,176,222,0.15)', border: '1px solid rgba(74,176,222,0.3)', borderRadius: '6px', fontSize: '11px', color: '#4ab0de' }}>
-              <Building2 size={10} /> {filterGroup || 'National Holding Group'}
+              <Building2 size={10} /> {filterGroup || 'Abu Dhabi Department of Education and Knowledge'}
             </span>
             {filterCompany && <>
               <ChevronRight size={10} style={{ color: 'var(--text-muted)' }} />
