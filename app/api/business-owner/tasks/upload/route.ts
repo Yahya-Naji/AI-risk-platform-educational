@@ -19,11 +19,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Task not found" }, { status: 404 });
     }
 
-    // Convert file to base64 and store in DB
-    const bytes = await file.arrayBuffer();
-    const base64 = Buffer.from(bytes).toString("base64");
-    const dataUri = `data:${file.type || "application/octet-stream"};base64,${base64}`;
-
     // Format file size
     const sizeKB = Math.round(file.size / 1024);
     const fileSize =
@@ -34,8 +29,6 @@ export async function POST(request: Request) {
         fileName: file.name,
         fileSize,
         fileType: file.type || null,
-        url: null,
-        data: dataUri,
         taskId: task.id,
       },
     });
